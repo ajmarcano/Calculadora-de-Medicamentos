@@ -1,13 +1,13 @@
 def main():
     while True:
-        def wait_input():
+        def wait_input(): #Pantalla que aparece despues de calcular tu medicamento, "Si" va a repetir el programa, "No" va a terminarlo
             wait_input = input("¿Desea calcular otro medicamento? Si / No: \n")
             if wait_input == "Si" or wait_input == "si":
                 return(True)
             elif wait_input == "No" or wait_input == "no":
                 return(False)
 
-        try:
+        try: #Primera pantalla, elige el medicamento que vas a calcular colocando el numero del medicamento
             pregunta = input("¿Qué medicamento desea calcular? \
                         \n1. Amoxicilina \
                         \n2. Azitromicina \
@@ -22,20 +22,20 @@ def main():
             pregunta_int = int(pregunta)
 
         except: 
-            print("¡Debes escribir un número!")
+            print("¡Debes escribir un número!") #Si no introducen un numero crea esta excepcion y repite el programa
             continue
             
         peso = input("¿Cuál es el peso del paciente? ")
         
         try:
-            class Medicamentos():
+            class Medicamentos(): #Clase principal donde se guardan todos los medicamentos como objetos y contiene el algoritmo para calcular la dosis de acuerdo al peso del paciente
                 def __init__(self, nombre, dosis, ml, mg, frecuencia, horas):
                     self.nombre = nombre
                     self.dosis = dosis
                     self.ml = ml
                     self.mg = mg
-                    self.frecuencia = frecuencia
-                    self.horas = horas
+                    self.frecuencia = frecuencia #cada 8, 12 o 24 horas
+                    self.horas = horas #Divide la dosis final en 1, 2 o 3 dependiendo de la frecuencia en la que se toma el medicamento
             
                 def Calc_Peso(self):
                     dosis = float(peso) * self.dosis * self.ml / self.mg / self.horas
